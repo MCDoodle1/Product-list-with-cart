@@ -1,11 +1,12 @@
 import "./App.css";
 import Card from "./components/Card";
+import Cart from "./components/Cart";
 
 function App() {
   return (
     <>
-      <h1>Desserts</h1>
       <Card />
+      <Cart />
     </>
   );
 }

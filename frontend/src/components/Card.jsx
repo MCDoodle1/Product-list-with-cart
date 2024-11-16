@@ -17,8 +17,9 @@ const Card = () => {
   }
   return (
     <>
+      <h1>Desserts</h1>
       <ul className="card-wrapper">
-        {data.map((item) => (
+        {data.map((item, index) => (
           <li key={item.id} className="card">
             <div className="image-wrapper">
               <img
