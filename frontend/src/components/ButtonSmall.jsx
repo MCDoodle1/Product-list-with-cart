@@ -1,8 +1,11 @@
 import cartIcon from "../../assets/images/icon-add-to-cart.svg";
 import minus from "../../assets/images/icon-decrement-quantity.svg";
 import plus from "../../assets/images/icon-increment-quantity.svg";
+import { useState } from "react";
 
-const ButtonSmall = ({ buttonClicked }) => {
+const ButtonSmall = () => {
+  const buttonClicked = useState(false);
+
   return buttonClicked ? (
     <div className="button-small unclicked">
       <img src={cartIcon} alt="Add to cart icon" className="cart-icon" />

@@ -2,11 +2,13 @@ import emptyCartIcon from "../../assets/images/illustration-empty-cart.svg";
 import tree from "../../assets/images/icon-carbon-neutral.svg";
 import cross from "../../assets/images/icon-remove-item.svg";
 import ButtonLarge from "../components/ButtonLarge";
+import { useState } from "react";
 
-const Cart = ({ buttonClicked }) => {
+const Cart = () => {
+  const buttonClicked = useState(false);
   return (
     <>
-      <section className="cart">
+      <section className="cart-wrapper">
         <h2 className="cart title">Your Cart (0)</h2>
         {buttonClicked ? (
           <>
@@ -21,7 +23,7 @@ const Cart = ({ buttonClicked }) => {
           </>
         ) : (
           <>
-            <div className="cart cart-wrapper">
+            <div className="cart product-wrapper">
               <div className="cart item-wrapper">
                 <div className="cart name">Classic Tiramisu</div>
                 <div className="cart itemprice-wrapper">
@@ -37,7 +39,7 @@ const Cart = ({ buttonClicked }) => {
               />
             </div>
             <hr />
-            <div className="cart cart-wrapper">
+            <div className="cart product-wrapper">
               <div className="cart item-wrapper">
                 <div className="cart name">Vanilla Bean Creme Brulee</div>
                 <div className="cart itemprice-wrapper">
@@ -53,7 +55,7 @@ const Cart = ({ buttonClicked }) => {
               />
             </div>
             <hr />
-            <div className="cart cart-wrapper">
+            <div className="cart product-wrapper">
               <div className="cart item-wrapper">
                 <div className="cart name">Vanilla Panna Cotta</div>
                 <div className="cart itemprice-wrapper">
@@ -80,7 +82,7 @@ const Cart = ({ buttonClicked }) => {
                 This is a&nbsp;<span>carbon-neutral</span>&nbsp;delivery
               </div>
             </div>
-            <ButtonLarge />
+            <ButtonLarge text={"Confirm Order"} onClick={handleConfirmOrder} />
           </>
         )}
       </section>

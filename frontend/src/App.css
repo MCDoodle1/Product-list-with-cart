@@ -187,8 +187,6 @@ meter {
 body {
   font-family: "Red Hat Text", sans-serif;
   background-color: var(--clr-rose-100);
-  margin-inline: var(--space-l);
-  margin-block-end: var(--space-xl);
 }
 
 h1 {
@@ -203,14 +201,17 @@ hr {
   margin-block: var(--space-m);
 }
 
-.card-wrapper {
-  display: grid;
-  gap: var(--space-xl);
-  margin-block-end: var(--space-xl);
-}
 .card {
-  display: grid;
+  position: relative;
+  display: grid; /* grid */
   gap: var(--space-xs);
+  z-index: 0;
+  &.wrapper {
+    gap: var(--space-xl);
+    margin-block-end: var(--space-xl);
+    margin-inline: var(--space-l);
+    position: relative;
+  }
   .image-wrapper {
     position: relative;
     .image {
@@ -222,7 +223,6 @@ hr {
       }
     }
   }
-
   .category {
     color: var(--clr-rose-500);
     font-size: var(--fs-100);
@@ -271,11 +271,14 @@ hr {
   }
 }
 
-.cart {
+.cart-wrapper {
+  position: relative;
   background-color: var(--clr-white);
   border-radius: var(--br-l);
-  display: flex;
+  display: flex; /* flex */
   flex-direction: column;
+  z-index: 0;
+  margin-inline: var(--space-l);
   .title {
     color: var(--clr-red);
     font-size: var(--fs-400);
@@ -298,9 +301,8 @@ hr {
     font-weight: var(--fw-700);
     color: var(--clr-rose-900);
   }
-  .cart-wrapper {
-    position: relative;
-    width: 100%;
+  .product-wrapper {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-inline: var(--space-l);
@@ -331,6 +333,7 @@ hr {
     align-self: center;
   }
   .ordertotal-wrapper {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-inline: var(--space-l);
@@ -345,13 +348,16 @@ hr {
     font-weight: var(--fw-700);
   }
   .carbon-statement {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-s);
     width: 85%;
     margin-inline: auto;
     margin-block: var(--space-m);
     padding-block: var(--space-m);
     padding-inline: var(--space-xl);
-    flex-direction: row;
-    justify-content: space-between;
+
     background-color: var(--clr-rose-100);
   }
   .carbon-text {
@@ -374,4 +380,95 @@ hr {
   border-radius: var(--br-xxl);
   margin-block-start: var(--space-s);
   margin-block-end: var(--space-l);
+}
+
+.lightbox-layer {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.lightbox-wrapper {
+  position: absolute;
+  width: 100%;
+  background-color: var(--clr-white);
+  margin-block-start: var(--space-4xl);
+  border-radius: var(--br-s);
+  & > * {
+    padding-inline: var(--space-l);
+  }
+}
+.lightbox {
+  &.confirmed-icon {
+    padding-block-end: var(--space-l);
+    padding-block-start: var(--space-xxl);
+  }
+  &.title {
+    font-size: var(--fs-600);
+    font-weight: var(--fw-700);
+    padding-inline-end: var(--space-xxl);
+  }
+  &.text {
+    color: var(--clr-rose-400);
+  }
+  &.order-wrapper {
+    background-color: var(--clr-rose-50);
+    padding: var(--space-l);
+    margin: var(--space-l);
+    border-radius: var(--br-m);
+  }
+  &.item-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    gap: var(--space-m);
+  }
+  &.line {
+    width: 100%;
+    border-bottom: 1px solid var(--clr-rose-100);
+  }
+  &.item-subwrapper {
+    display: grid;
+    gap: var(--space-s);
+  }
+  &.thumbnail {
+    border-radius: var(--br-xs);
+  }
+  &.name {
+    font-size: calc(var(--fs-100) * 1.1);
+    font-weight: var(--fw-600);
+  }
+  &.number-pricewrapper {
+    display: flex;
+    gap: var(--space-m);
+    align-items: center;
+  }
+  &.number {
+    color: var(--clr-red);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-700);
+  }
+  &.itemprice {
+    color: var(--clr-rose-400);
+    font-size: calc(var(--fs-100) * 1.1);
+  }
+  &.total-itemprice {
+    justify-self: flex-end;
+    font-weight: var(--fw-600);
+  }
+  &.ordertotal-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &.ordertotal-text {
+    font-size: calc(var(--fs-100) * 1.1);
+  }
+  &.ordertotal-amount {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-700);
+  }
 }

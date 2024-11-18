@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import ButtonSmall from "./ButtonSmall";
 
-const Card = () => {
+const Card = ({ buttonClicked, handleAddToCart }) => {
   const [data, setData] = useState(null);
-  const buttonClicked = useState(false);
 
   useEffect(() => {
     fetch("../../data.json")
@@ -17,8 +16,8 @@ const Card = () => {
   }
   return (
     <>
-      <h1>Desserts</h1>
-      <ul className="card-wrapper">
+      <ul className="card wrapper">
+        <h1>Desserts</h1>
         {data.map((item, index) => (
           <li key={item.id} className="card">
             <div className="image-wrapper">
@@ -27,7 +26,7 @@ const Card = () => {
                 alt={item.name}
                 className={buttonClicked ? "card image" : "card image clicked"}
               />
-              <ButtonSmall buttonClicked={buttonClicked} />
+              <ButtonSmall onClick={buttonClicked} />
             </div>
 
             <div className="card category">{item.category}</div>

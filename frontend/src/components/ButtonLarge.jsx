@@ -1,4 +1,4 @@
-const ButtonLarge = () => {
-  return <div className="button-large">Confirm Order</div>;
+const ButtonLarge = ({ text }) => {
+  return <div className="button-large">{text}</div>;
 };
 export default ButtonLarge;
