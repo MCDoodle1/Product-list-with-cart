@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import ButtonSmall from "./ButtonSmall";
 
-const Card = ({ buttonClicked, handleAddToCart }) => {
+const Card = () => {
   const [data, setData] = useState(null);
+  const buttonClicked = false;
 
   useEffect(() => {
     fetch("../../data.json")
@@ -16,25 +17,27 @@ const Card = ({ buttonClicked, handleAddToCart }) => {
   }
   return (
     <>
-      <ul className="card wrapper">
+      <section className="flex-wrapper column-1">
         <h1>Desserts</h1>
-        {data.map((item, index) => (
-          <li key={item.id} className="card">
-            <div className="image-wrapper">
-              <img
-                src={item.image.mobile}
-                alt={item.name}
-                className={buttonClicked ? "card image" : "card image clicked"}
-              />
-              <ButtonSmall onClick={buttonClicked} />
-            </div>
+        <ul className="card-grid">
+          {data.map((item, index) => (
+            <li key={index} className="card">
+              <div className="image-wrapper">
+                <img
+                  src={item.image.mobile}
+                  alt={item.name}
+                  className={buttonClicked ? "image clicked" : "image"}
+                />
+                <ButtonSmall onClick={buttonClicked} />
+              </div>
 
-            <div className="card category">{item.category}</div>
-            <div className="card name">{item.name}</div>
-            <div className="card price">${item.price.toFixed(2)}</div>
-          </li>
-        ))}
-      </ul>
+              <div className="category">{item.category}</div>
+              <div className="name">{item.name}</div>
+              <div className="price">${item.price.toFixed(2)}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 };

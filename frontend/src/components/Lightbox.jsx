@@ -3,12 +3,8 @@ import productThumbnail_1 from "../../assets/images/image-tiramisu-thumbnail.jpg
 import productThumbnail_2 from "../../assets/images/image-creme-brulee-thumbnail.jpg";
 import productThumbnail_3 from "../../assets/images/image-panna-cotta-thumbnail.jpg";
 import ButtonLarge from "./ButtonLarge";
-import { useState } from "react";
 
 const Lightbox = () => {
-  const [lightboxActive, setLightboxActive] = useState(false);
-  const buttonClicked = useState(false);
-
   return (
     <div className="lightbox-layer">
       <div className="lightbox-wrapper">
