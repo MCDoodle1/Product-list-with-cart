@@ -3,6 +3,7 @@ import ButtonSmall from "./ButtonSmall";
 
 const Card = () => {
   const [data, setData] = useState(null);
+  const [screenSize, setScreenSize] = useState("mobile");
   const buttonClicked = false;
 
   useEffect(() => {
@@ -10,6 +11,26 @@ const Card = () => {
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  useEffect(() => {
+    // Function to determine screen size category
+    const updateScreenSize = () => {
+      if (window.innerWidth >= 1024) {
+        setScreenSize("desktop");
+      } else if (window.innerWidth >= 768) {
+        setScreenSize("tablet");
+      } else {
+        setScreenSize("mobile");
+      }
+    };
+
+    // Set initial screen size and add resize event listener
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+
+    // Cleanup on component unmount
+    return () => window.removeEventListener("resize", updateScreenSize);
   }, []);
 
   if (!data) {
@@ -24,7 +45,7 @@ const Card = () => {
             <li key={index} className="card">
               <div className="image-wrapper">
                 <img
-                  src={item.image.mobile}
+                  src={item.image[screenSize]}
                   alt={item.name}
                   className={buttonClicked ? "image clicked" : "image"}
                 />
