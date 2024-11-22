@@ -79,7 +79,7 @@ const Cart = () => {
               <div className="cart carbon-statement">
                 <img src={tree} alt="tree as symbol carbon-neutrality" />
                 <div className="cart carbon-text">
-                  This is a&nbsp;<span>carbon-neutral</span>&nbsp;delivery
+                  This is a <span>carbon-neutral</span> delivery
                 </div>
               </div>
               <ButtonLarge text={"Confirm Order"} />
