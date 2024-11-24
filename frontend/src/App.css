@@ -214,7 +214,7 @@ h1 {
   margin: var(--space-l);
 }
 hr {
-  width: 90%;
+  width: 100%;
   margin-inline: auto;
   border-bottom: 2px solid var(--clr-rose-50);
   margin-block: var(--space-m);
@@ -271,11 +271,12 @@ hr {
   z-index: 0;
   margin-inline: var(--space-l);
   margin-block: var(--space-xl);
+  padding: var(--space-l);
   .title {
     color: var(--clr-red);
     font-size: var(--fs-400);
     font-weight: var(--fw-700);
-    padding: var(--space-l);
+    margin-block-end: var(--space-l);
   }
   .image {
     width: 40%;
@@ -297,9 +298,9 @@ hr {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-inline: var(--space-l);
   }
   .item-wrapper {
+    display: grid;
     gap: var(--space-s);
   }
   .itemprice-wrapper {
@@ -313,6 +314,7 @@ hr {
   }
   .price {
     color: var(--clr-rose-500);
+    font-size: calc(var(--fs-100) * 1.1);
   }
   .itemtotal {
     color: var(--clr-rose-500);
@@ -331,7 +333,6 @@ hr {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-inline: var(--space-l);
     margin-block: var(--space-m);
   }
   .ordertotal-text {
@@ -347,8 +348,6 @@ hr {
     flex-direction: row;
     justify-content: center;
     gap: var(--space-s);
-    width: 85%;
-    margin-inline: auto;
     margin-block: var(--space-m);
     padding-block: var(--space-m);
     padding-inline: var(--space-s);
@@ -363,16 +362,7 @@ hr {
   }
 }
 
-@container (width >= 1024px) {
-  .cart-wrapper {
-    padding-block-start: var(--space-s);
-    padding-block-end: var(--space-l);
-    margin-inline: var(--space-m);
-  }
-}
 .button-large {
-  width: 85%;
-  margin-inline: auto;
   color: var(--clr-rose-100);
   background-color: var(--clr-red);
   text-align: center;
@@ -445,19 +435,17 @@ hr {
   z-index: 1000;
 }
 .lightbox-wrapper {
-  position: absolute;
-  width: 100%;
+  width: min(100%, 480px);
+  margin: 0 auto;
   background-color: var(--clr-white);
   margin-block-start: var(--space-4xl);
+  padding: var(--space-l);
   border-radius: var(--br-s);
-  & > * {
-    padding-inline: var(--space-l);
-  }
 }
 .lightbox {
   &.confirmed-icon {
-    padding-block-end: var(--space-l);
-    padding-block-start: var(--space-xxl);
+    padding-block-end: var(--space-m);
+    padding-block-start: var(--space-l);
   }
   &.title {
     font-size: var(--fs-600);
@@ -470,7 +458,7 @@ hr {
   &.order-wrapper {
     background-color: var(--clr-rose-50);
     padding: var(--space-l);
-    margin: var(--space-l);
+    margin-block: var(--space-xxl);
     border-radius: var(--br-m);
   }
   &.item-wrapper {
@@ -482,12 +470,16 @@ hr {
   &.line {
     width: 100%;
     border-bottom: 1px solid var(--clr-rose-100);
+    &:last-of-type {
+      margin-block-start: var(--space-xl);
+    }
   }
   &.item-subwrapper {
     display: grid;
     gap: var(--space-s);
   }
   &.thumbnail {
+    width: 90%;
     border-radius: var(--br-xs);
   }
   &.name {
@@ -516,6 +508,7 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-block: var(--space-s);
   }
   &.ordertotal-text {
     font-size: calc(var(--fs-100) * 1.1);
@@ -523,5 +516,18 @@ hr {
   &.ordertotal-amount {
     font-size: var(--fs-400);
     font-weight: var(--fw-700);
+  }
+}
+
+@container (width >= 1024px) {
+  .lightbox-wrapper {
+    width: 40%;
+    top: 10%;
+    left: 30%;
+    border-radius: var(--br-l);
+    padding: var(--space-l);
+  }
+  .lightbox.thumbnail {
+    width: 50%;
   }
 }
