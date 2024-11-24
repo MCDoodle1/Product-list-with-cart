@@ -5,7 +5,7 @@ import Cart from "./components/Cart";
 import Lightbox from "./components/Lightbox";
 
 function App() {
-  const lightboxActive = false;
+  const lightboxActive = true;
 
   return (
     <>

@@ -4,7 +4,7 @@ import plus from "../../assets/images/icon-increment-quantity.svg";
 import { useState } from "react";
 
 const ButtonSmall = () => {
-  const buttonClicked = true;
+  const buttonClicked = false;
 
   return buttonClicked ? (
     <div className="button-small unclicked">

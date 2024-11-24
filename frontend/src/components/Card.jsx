@@ -4,7 +4,7 @@ import ButtonSmall from "./ButtonSmall";
 const Card = () => {
   const [data, setData] = useState(null);
   const [screenSize, setScreenSize] = useState("mobile");
-  const buttonClicked = false;
+  const buttonClicked = true;
 
   useEffect(() => {
     fetch("../../data.json")
