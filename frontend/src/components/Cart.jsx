@@ -1,16 +1,15 @@
 import emptyCartIcon from "../../assets/images/illustration-empty-cart.svg";
 import tree from "../../assets/images/icon-carbon-neutral.svg";
-import cross from "../../assets/images/icon-remove-item.svg";
 import ButtonLarge from "../components/ButtonLarge";
+import CartItem from "./CartItem";
 
-const Cart = () => {
-  const buttonClicked = true;
+const Cart = ({ cart, count, deleteItem, confirm, totalItems, totalValue }) => {
   return (
     <>
       <div className="flex-wrapper column-2">
         <section className="cart-wrapper">
-          <h2 className="cart title">Your Cart (0)</h2>
-          {!buttonClicked ? (
+          <h2 className="cart title">Your Cart ({totalItems})</h2>
+          {cart.length === 0 ? (
             <>
               <img
                 className="cart image"
@@ -23,57 +22,19 @@ const Cart = () => {
             </>
           ) : (
             <>
-              <div className="cart product-wrapper">
-                <div className="cart item-wrapper">
-                  <div className="cart name">Classic Tiramisu</div>
-                  <div className="cart itemprice-wrapper">
-                    <div className="count">1x</div>
-                    <div className="price">@ $5.50</div>
-                    <div className="itemtotal">$5.50</div>
-                  </div>
-                </div>
-                <img
-                  className="cart remove-item"
-                  src={cross}
-                  alt="cross-shaped icon to remove item"
+              {cart.map((item) => (
+                <CartItem
+                  key={item.index}
+                  item={item}
+                  count={count}
+                  deleteItem={deleteItem}
                 />
-              </div>
-              <hr />
-              <div className="cart product-wrapper">
-                <div className="cart item-wrapper">
-                  <div className="cart name">Vanilla Bean Creme Brulee</div>
-                  <div className="cart itemprice-wrapper">
-                    <div className="cart count">4x</div>
-                    <div className="cart price">@ $7.00</div>
-                    <div className="cart itemtotal">$28.00</div>
-                  </div>
-                </div>
-                <img
-                  className="cart remove-item"
-                  src={cross}
-                  alt="cross-shaped icon to remove item"
-                />
-              </div>
-              <hr />
-              <div className="cart product-wrapper">
-                <div className="cart item-wrapper">
-                  <div className="cart name">Vanilla Panna Cotta</div>
-                  <div className="cart itemprice-wrapper">
-                    <div className="cart count">2x</div>
-                    <div className="cart price">@ $6.50</div>
-                    <div className="cart itemtotal">$13.00</div>
-                  </div>
-                </div>
-                <img
-                  className="cart remove-item"
-                  src={cross}
-                  alt="cross-shaped icon to remove item"
-                />
-              </div>
-              <hr />
+              ))}
               <div className="cart ordertotal-wrapper">
                 <div className="cart ordertotal-text">Order Total</div>
-                <div className="cart ordertotal-amount">$46.50</div>
+                <div className="cart ordertotal-amount">
+                  ${totalValue.toFixed(2)}
+                </div>
               </div>
 
               <div className="cart carbon-statement">
@@ -82,7 +43,7 @@ const Cart = () => {
                   This is a <span>carbon-neutral</span> delivery
                 </div>
               </div>
-              <ButtonLarge text={"Confirm Order"} />
+              <ButtonLarge text={"Confirm Order"} confirm={confirm} />
             </>
           )}
         </section>

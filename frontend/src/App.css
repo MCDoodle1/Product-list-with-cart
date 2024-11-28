@@ -363,6 +363,7 @@ hr {
 }
 
 .button-large {
+  width: 100%;
   color: var(--clr-rose-100);
   background-color: var(--clr-red);
   text-align: center;
@@ -455,31 +456,33 @@ hr {
   &.text {
     color: var(--clr-rose-400);
   }
-  &.order-wrapper {
+  &.products-wrapper {
     background-color: var(--clr-rose-50);
-    padding: var(--space-l);
-    margin-block: var(--space-xxl);
+    margin-block: var(--space-xl);
     border-radius: var(--br-m);
   }
   &.item-wrapper {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1.25fr 4fr 1fr;
+    padding: var(--space-l);
+    justify-content: space-between;
     align-items: center;
     gap: var(--space-m);
   }
-  &.line {
-    width: 100%;
-    border-bottom: 1px solid var(--clr-rose-100);
-    &:last-of-type {
-      margin-block-start: var(--space-xl);
-    }
-  }
   &.item-subwrapper {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-s);
   }
-  &.thumbnail {
+  &.line {
     width: 90%;
+    border-bottom: 1px solid var(--clr-rose-100);
+    margin-block: 0;
+    &:last-of-type {
+      margin-block-start: var(--space-s);
+    }
+  }
+  &.thumbnail {
     border-radius: var(--br-xs);
   }
   &.name {
@@ -488,27 +491,28 @@ hr {
   }
   &.number-pricewrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-m);
     align-items: center;
-  }
-  &.number {
-    color: var(--clr-red);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-700);
-  }
-  &.itemprice {
-    color: var(--clr-rose-400);
-    font-size: calc(var(--fs-100) * 1.1);
+    &.number {
+      color: var(--clr-red);
+      font-size: calc(var(--fs-100) * 1.1);
+      font-weight: var(--fw-700);
+    }
+    &.price {
+      color: var(--clr-rose-300);
+      font-size: calc(var(--fs-100) * 1.17);
+    }
   }
   &.total-itemprice {
-    justify-self: flex-end;
+    justify-content: flex-end;
     font-weight: var(--fw-600);
   }
   &.ordertotal-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-block: var(--space-s);
+    padding: var(--space-l);
   }
   &.ordertotal-text {
     font-size: calc(var(--fs-100) * 1.1);
@@ -521,13 +525,19 @@ hr {
 
 @container (width >= 1024px) {
   .lightbox-wrapper {
+    position: fixed;
     width: 40%;
     top: 10%;
     left: 30%;
     border-radius: var(--br-l);
-    padding: var(--space-l);
+    padding: var(--space-xxl);
+  }
+  .lightbox.item-wrapper {
+    grid-template-columns: 1fr 6fr 1fr;
   }
   .lightbox.thumbnail {
-    width: 50%;
+  }
+  .lightbox.total-itemprice {
+    justify-self: flex-end;
   }
 }

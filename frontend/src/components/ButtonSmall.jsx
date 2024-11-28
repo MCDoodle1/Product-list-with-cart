@@ -1,19 +1,21 @@
 import cartIcon from "../../assets/images/icon-add-to-cart.svg";
-import minus from "../../assets/images/icon-decrement-quantity.svg";
-import plus from "../../assets/images/icon-increment-quantity.svg";
-import { useState } from "react";
 
-const ButtonSmall = () => {
-  const buttonClicked = false;
-
-  return buttonClicked ? (
-    <div className="button-small unclicked">
+const ButtonSmall = ({
+  index,
+  onClick,
+  buttonClicked,
+  increment,
+  decrement,
+  count,
+}) => {
+  return !buttonClicked ? (
+    <button className="button-small unclicked" onClick={onClick}>
       <img src={cartIcon} alt="Add to cart icon" className="cart-icon" />
       <p>Add to Cart</p>
-    </div>
+    </button>
   ) : (
     <div className="button-small clicked">
-      <div className="minus-icon">
+      <button className="minus-icon" onClick={() => decrement(index)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="10"
@@ -22,10 +24,10 @@ const ButtonSmall = () => {
         >
           <path fill="#fff" d="M0 .375h10v1.25H0V.375Z" />
         </svg>
-      </div>
+      </button>
 
-      <div>4</div>
-      <div className="plus-icon">
+      <div>{count}</div>
+      <button className="plus-icon" onClick={() => increment(index)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="10"
@@ -37,7 +39,7 @@ const ButtonSmall = () => {
             d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"
           />
         </svg>
-      </div>
+      </button>
     </div>
   );
 };
