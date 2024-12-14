@@ -19,13 +19,26 @@ function App() {
   );
 
   useEffect(() => {
-    // Function to fetch data from data.json and assign it to state
-    fetch("../../data.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+    const fetchData = async () => {
+      try {
+        // Attempt to fetch data from MongoDB
+        const response = await fetch("http://localhost:5000/products");
+        if (!response.ok) throw new Error("MongoDB fetch failed");
+
+        const dbData = await response.json();
+        setData(dbData);
+      } catch (error) {
+        console.warn("Falling back to local data.json:", error.message);
+
+        // Fallback to data.json if MongoDB fetch fails
+        fetch("../../data.json")
+          .then((response) => response.json())
+          .then((jsonData) => setData(jsonData))
+          .catch((err) => console.error("Error loading data.json:", err));
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {

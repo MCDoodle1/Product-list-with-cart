@@ -11,12 +11,14 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     image: {
-      data: { type: Buffer, required: true },
-      contentType: { type: String, required: true },
+      thumbnail: { type: String, required: true },
+      mobile: { type: String, required: true },
+      tablet: { type: String, required: true },
+      desktop: { type: String, required: true },
     },
   },
   { timestamps: true }
