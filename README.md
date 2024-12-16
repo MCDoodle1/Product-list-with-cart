@@ -32,19 +32,18 @@ Users should be able to:
 ### Screenshots
 
 <p float="left">
-<img src="./frontend/assets/images/Mobile-Empty.png" /> &nbsp;&nbsp;
-<img src="./frontend/assets/images/Mobile-Ordered.png" /> &nbsp;&nbsp;
-<img src="./frontend/assets/images/Mobile-Confirmed.png" />
+<img src="./frontend/public/assets/images/Mobile-Empty.png" /> &nbsp;&nbsp;
+<img src="./frontend/public/assets/images/Mobile-Ordered.png" /> &nbsp;&nbsp;
+<img src="./frontend/public/assets/images/Mobile-Confirmed.png" />
 </p>
 
-![Desktop - Item ordered and cart](./frontend/assets/images/Desktop-Ordered.png)
-![Desktop - Order confirmation](./frontend/assets/images/Desktop-Confirmed.png)
+![Desktop - Item ordered and cart](./frontend/public/assets/images/Desktop-Ordered.png)
+![Desktop - Order confirmation](./frontend/public/assets/images/Desktop-Confirmed.png)
 
 ### Links
 
 - Solution URL: [GitHub - Products-list-with-cart](https://github.com/MCDoodle1/Product-list-with-cart)
 - Live Site Frontend: [GitHub Pages](https://mcdoodle1.github.io/Product-list-with-cart/)
-- Live Site MERN: [Render](https://product-list-with-cart-qak4.onrender.com) - Works as long as the MongoDB database is active.
 
 ## My process
 
