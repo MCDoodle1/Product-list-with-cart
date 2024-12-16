@@ -1,5 +1,3 @@
-import emptyCartIcon from "../../assets/images/illustration-empty-cart.svg";
-import tree from "../../assets/images/icon-carbon-neutral.svg";
 import ButtonLarge from "../components/ButtonLarge";
 import CartItem from "./CartItem";
 
@@ -13,7 +11,7 @@ const Cart = ({ cart, count, deleteItem, confirm, totalItems, totalValue }) => {
             <>
               <img
                 className="cart image"
-                src={emptyCartIcon}
+                src="/Product-list-with-cart/assets/images/illustration-empty-cart.svg"
                 alt="pie pieces illustrating empty cart"
               />
               <div className="cart content">
@@ -38,7 +36,10 @@ const Cart = ({ cart, count, deleteItem, confirm, totalItems, totalValue }) => {
               </div>
 
               <div className="cart carbon-statement">
-                <img src={tree} alt="tree as symbol carbon-neutrality" />
+                <img
+                  src="/Product-list-with-cart/assets/images/icon-carbon-neutral.svg"
+                  alt="tree as symbol carbon-neutrality"
+                />
                 <div className="cart carbon-text">
                   This is a <span>carbon-neutral</span> delivery
                 </div>

@@ -1,4 +1,3 @@
-import confirmedIcon from "../../assets/images/icon-order-confirmed.svg";
 import ButtonLarge from "./ButtonLarge";
 
 const Lightbox = ({ cart, count, totalValue, confirm }) => {
@@ -7,7 +6,7 @@ const Lightbox = ({ cart, count, totalValue, confirm }) => {
       <div className="lightbox-wrapper">
         <img
           className="lightbox confirmed-icon"
-          src={confirmedIcon}
+          src="/Product-list-with-cart/assets/images/icon-order-confirmed.svg"
           alt="order confirmed icon"
         />
         <div className="lightbox title">Order Confirmed</div>

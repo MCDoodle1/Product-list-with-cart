@@ -1,5 +1,3 @@
-import cartIcon from "../../assets/images/icon-add-to-cart.svg";
-
 const ButtonSmall = ({
   index,
   onClick,
@@ -10,7 +8,11 @@ const ButtonSmall = ({
 }) => {
   return !buttonClicked ? (
     <button className="button-small unclicked" onClick={onClick}>
-      <img src={cartIcon} alt="Add to cart icon" className="cart-icon" />
+      <img
+        src="/Product-list-with-cart/assets/images/icon-add-to-cart.svg"
+        alt="Add to cart icon"
+        className="cart-icon"
+      />
       <p>Add to Cart</p>
     </button>
   ) : (

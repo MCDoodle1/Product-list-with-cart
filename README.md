@@ -43,7 +43,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub - Products-list-with-cart](https://github.com/MCDoodle1/Product-list-with-cart)
-- Live Site Frontend: [GitHub Pages](https://mcdoodle1.github.io/Products-list-with-cart/)
+- Live Site Frontend: [GitHub Pages](https://mcdoodle1.github.io/Product-list-with-cart/)
 - Live Site MERN: [Render](https://product-list-with-cart-qak4.onrender.com) - Works as long as the MongoDB database is active.
 
 ## My process

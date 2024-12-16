@@ -31,7 +31,7 @@ function App() {
         console.warn("Falling back to local data.json:", error.message);
 
         // Fallback to data.json if MongoDB fetch fails
-        fetch("../../data.json")
+        fetch("/Product-list-with-cart/data.json")
           .then((response) => response.json())
           .then((jsonData) => setData(jsonData))
           .catch((err) => console.error("Error loading data.json:", err));

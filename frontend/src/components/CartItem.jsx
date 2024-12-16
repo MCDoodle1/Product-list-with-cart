@@ -1,5 +1,3 @@
-import cross from "../../assets/images/icon-remove-item.svg";
-
 const CartItem = ({ item, count, deleteItem }) => {
   return (
     <>
@@ -17,7 +15,7 @@ const CartItem = ({ item, count, deleteItem }) => {
         <button onClick={() => deleteItem(item.index)}>
           <img
             className="cart remove-item"
-            src={cross}
+            src="/Product-list-with-cart/assets/images/icon-remove-item.svg"
             alt="cross-shaped icon to remove item"
           />
         </button>
